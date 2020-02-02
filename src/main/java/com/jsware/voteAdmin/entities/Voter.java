@@ -34,6 +34,24 @@ public class Voter {
 	private String county;
 	
 	private Date DOB;
+	
+	public Voter() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Voter(String[] split) {
+		
+		this.id = Integer.parseInt(split[0]);
+		this.firstName = split[1];
+		this.lastName = split[2];
+		this.middleName = split[3];
+		this.streetName = split[4];
+		this.zipcode = split[5];
+		this.city = split[6];
+		this.state = split[7];
+		this.county = split[8];
+		this.DOB = Date.valueOf(split[9]);
+	}
 
 	public long getId() {
 		return id;

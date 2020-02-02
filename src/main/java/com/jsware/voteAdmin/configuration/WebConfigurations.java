@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
@@ -27,6 +29,13 @@ public class WebConfigurations implements WebMvcConfigurer {
 		
 		log.info("Mapping Init");
 	}
+	
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry
+          .addResourceHandler("/upload/**")
+          .addResourceLocations("file:///C:/voterAdmin/upload/");
+    }
 //	@Bean
 //	public ServletWebServerFactory  servletContainer() {
 //		TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
